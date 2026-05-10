@@ -697,8 +697,8 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-navy" style="font-family: 'Playfair Display', serif;">Download Brochure</a>
-                    <a href="#contact" class="btn btn-gold-outline" style="font-family: 'Playfair Display', serif;">Book Site Visit</a>
+                    <button type="button" class="btn btn-navy" onclick="openLeadModal('Download Brochure', 'Please enter your details to receive the official brochure and price sheet via WhatsApp.')" style="font-family: 'Playfair Display', serif; cursor: pointer;">Download Brochure</button>
+                    <button type="button" class="btn btn-gold-outline" onclick="openLeadModal('Book Site Visit', 'Please enter your details to schedule a priority site visit.')" style="font-family: 'Playfair Display', serif; cursor: pointer;">Book Site Visit</button>
                 </div>
 
                 <p class="trust-line">✅ RERA Applied | ✅ Sobha Limited Project | ✅ Authorized Channel Partner | ✅ Zero Brokerage</p>
@@ -1769,6 +1769,40 @@
     color: #666;
 }
 .fp-modal-close:hover {
+    color: #000;
+}
+
+/* GENERIC LEAD MODAL */
+.lead-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+}
+.lead-modal-overlay.active {
+    display: flex;
+}
+.lead-modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-top: 4px solid var(--accent-gold);
+}
+.lead-modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+}
+.lead-modal-close:hover {
     color: #000;
 }
 .tab-details-area {
@@ -6513,6 +6547,30 @@
             document.getElementById('fp-success-container').style.display = 'block';
         });
     }
+
+    // Generic Lead Modal Logic
+    window.openLeadModal = function(title, subtext) {
+        const leadModal = document.getElementById('lead-modal');
+        const leadTitle = document.getElementById('lead-modal-title');
+        const leadSubtext = document.getElementById('lead-modal-subtext');
+        
+        if (leadModal && leadTitle && leadSubtext) {
+            leadTitle.innerText = title;
+            leadSubtext.innerText = subtext;
+            document.getElementById('lead-form-container').style.display = 'block';
+            document.getElementById('lead-success-container').style.display = 'none';
+            leadModal.classList.add('active');
+        }
+    };
+
+    // Handle lead form submission
+    document.addEventListener('submit', function(e) {
+        if (e.target && e.target.id === 'lead-modal-form') {
+            e.preventDefault();
+            document.getElementById('lead-form-container').style.display = 'none';
+            document.getElementById('lead-success-container').style.display = 'block';
+        }
+    });
 </script>
 
 <!-- FLOOR PLAN MODAL -->
@@ -6538,6 +6596,33 @@
         <div id="fp-success-container" style="display: none; text-align: center; padding: 20px;">
             <h3 style="color: #2e7d32; margin-bottom: 10px; font-family: var(--font-heading);">✅ Thank You!</h3>
             <p style="font-size: 14px; color: var(--text-grey); line-height: 1.6;">Your request is successful. You will receive the detailed floor plan PDF directly on your WhatsApp shortly.</p>
+        </div>
+    </div>
+</div>
+
+<!-- GENERIC LEAD MODAL -->
+<div class="lead-modal-overlay" id="lead-modal" onclick="if(event.target === this) this.classList.remove('active')">
+    <div class="lead-modal-content">
+        <span class="lead-modal-close" id="close-lead-modal" onclick="document.getElementById('lead-modal').classList.remove('active')">&times;</span>
+        <div id="lead-form-container">
+            <h3 id="lead-modal-title" style="font-family: var(--font-heading); color: var(--accent-navy); margin-bottom: 10px;">Download Brochure</h3>
+            <p id="lead-modal-subtext" style="font-size: 14px; color: var(--text-grey); margin-bottom: 20px;">Please enter your details to receive the official brochure and price sheet via WhatsApp.</p>
+            <form id="lead-modal-form">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="text" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="tel" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <button type="submit" class="btn btn-navy" style="width: 100%; padding: 12px; font-size: 16px;">Submit Request</button>
+            </form>
+        </div>
+        <div id="lead-success-container" style="display: none; text-align: center; padding: 20px;">
+            <h3 style="color: #2e7d32; margin-bottom: 10px; font-family: var(--font-heading);">✅ Thank You!</h3>
+            <p style="font-size: 14px; color: var(--text-grey); line-height: 1.6;">Your request has been received. Our property advisor will contact you shortly with the requested information.</p>
         </div>
     </div>
 </div>
