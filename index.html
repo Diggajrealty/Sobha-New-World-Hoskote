@@ -1606,11 +1606,16 @@
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #eee;
+    position: relative;
+    background: #f8f8f8;
 }
 .pricing-img-wrapper img {
     width: 100%;
     height: auto;
     display: block;
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
 }
 .btn-outline-navy {
     display: block;
@@ -1710,12 +1715,61 @@
 }
 .tab-img-area {
     flex: 1;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    background: #f8f8f8;
 }
 .tab-img-area img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    display: block;
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}
+.fp-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+/* FLOOR PLAN MODAL */
+.fp-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+.fp-modal-overlay.active {
+    display: flex;
+}
+.fp-modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-top: 4px solid var(--accent-navy);
+}
+.fp-modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+}
+.fp-modal-close:hover {
+    color: #000;
 }
 .tab-details-area {
     flex: 1;
@@ -1981,6 +2035,9 @@
                 <div class="pricing-img-wrapper">
                     <!-- GEMINI IMAGE PROMPT: Clean minimal architectural floor plan blueprint of a compact 1 bedroom hall kitchen Indian apartment, white background, navy blue lines, room labels in clean sans-serif font, professional architectural drawing style, 740 square feet layout -->
                     <img src="images/floor-plan-1bhk.jpg" alt="Sobha One World Hoskote 1 BHK floor plan 734 sqft pre-launch price 1.09 crore">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 10px 16px; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 
                 <div class="pricing-details">
@@ -2012,6 +2069,9 @@
                 <div class="pricing-img-wrapper">
                     <!-- GEMINI IMAGE PROMPT: Clean minimal architectural floor plan blueprint of a 2 bedroom hall kitchen Indian apartment, white background, navy blue lines, room labels, professional architectural drawing style, 1063 square feet open plan layout -->
                     <img src="images/floor-plan-2bhk.jpg" alt="Sobha One World Hoskote 2 BHK floor plan 1063 sqft Luxe Grande pre-launch price">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 10px 16px; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 
                 <div class="pricing-details">
@@ -2046,6 +2106,9 @@
                 <div class="pricing-img-wrapper">
                     <!-- GEMINI IMAGE PROMPT: Clean minimal architectural floor plan blueprint of a spacious 3 bedroom hall kitchen Indian apartment, white background, navy blue lines, room labels, professional architectural drawing style, 1510 square feet layout with balcony -->
                     <img src="images/floor-plan-3bhk.jpg" alt="Sobha One World Hoskote 3 BHK floor plan 1510 sqft Luxe Grande 2 car park">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 10px 16px; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 
                 <div class="pricing-details">
@@ -2080,6 +2143,9 @@
                 <div class="pricing-img-wrapper">
                     <!-- GEMINI IMAGE PROMPT: Clean minimal architectural floor plan blueprint of a luxury 4 bedroom hall kitchen Indian apartment, white background, navy blue lines, room labels, professional architectural drawing style, 2096 square feet layout with large balcony and utility room -->
                     <img src="images/floor-plan-4bhk.jpg" alt="Sobha One World Hoskote 4 BHK floor plan 2096 sqft ultra luxury pre-launch price 3.08 crore">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 10px 16px; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 
                 <div class="pricing-details">
@@ -2141,6 +2207,9 @@
             <div class="tab-pane active" id="tab-1bhk">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-1bhk.jpg" alt="1 BHK Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -2171,6 +2240,9 @@
             <div class="tab-pane" id="tab-2bhk-luxe">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-2bhk.jpg" alt="2 BHK Luxe Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -2201,6 +2273,9 @@
             <div class="tab-pane" id="tab-2bhk-grande">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-2bhk.jpg" alt="2 BHK Grande Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -2231,6 +2306,9 @@
             <div class="tab-pane" id="tab-3bhk-luxe">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-3bhk.jpg" alt="3 BHK Luxe Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -2261,6 +2339,9 @@
             <div class="tab-pane" id="tab-3bhk-grande">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-3bhk.jpg" alt="3 BHK Grande Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -2291,6 +2372,9 @@
             <div class="tab-pane" id="tab-4bhk">
                 <div class="tab-img-area">
                     <img src="images/floor-plan-4bhk.jpg" alt="4 BHK Floor Plan">
+                    <div class="fp-overlay">
+                        <button type="button" class="btn btn-navy open-fp-modal" onclick="document.getElementById('fp-modal').classList.add('active')" style="padding: 12px 24px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">View Floor Plan</button>
+                    </div>
                 </div>
                 <div class="tab-details-area">
                     <table class="room-table">
@@ -6387,7 +6471,6 @@
         }
     });
 
-    // Exit Form Submit
     if (exitForm) {
         exitForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -6398,7 +6481,66 @@
             }, 3000);
         });
     }
+
+    // Floor Plan Modal Logic
+    const fpBtns = document.querySelectorAll('.open-fp-modal');
+    const fpModal = document.getElementById('fp-modal');
+    const closeFpBtn = document.getElementById('close-fp-modal');
+    const fpForm = document.getElementById('fp-form');
+    
+    fpBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            fpModal.classList.add('active');
+        });
+    });
+    
+    if (closeFpBtn) {
+        closeFpBtn.addEventListener('click', () => {
+            fpModal.classList.remove('active');
+        });
+    }
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === fpModal) {
+            fpModal.classList.remove('active');
+        }
+    });
+    
+    if (fpForm) {
+        fpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('fp-form-container').style.display = 'none';
+            document.getElementById('fp-success-container').style.display = 'block';
+        });
+    }
 </script>
+
+<!-- FLOOR PLAN MODAL -->
+<div class="fp-modal-overlay" id="fp-modal" onclick="if(event.target === this) this.classList.remove('active')">
+    <div class="fp-modal-content">
+        <span class="fp-modal-close" id="close-fp-modal" onclick="document.getElementById('fp-modal').classList.remove('active')">&times;</span>
+        <div id="fp-form-container">
+            <h3 style="font-family: var(--font-heading); color: var(--accent-navy); margin-bottom: 10px;">Unlock Floor Plan</h3>
+            <p style="font-size: 14px; color: var(--text-grey); margin-bottom: 20px;">Please enter your details to view the high-resolution floor plans.</p>
+            <form id="fp-form">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="text" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="tel" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                </div>
+                <button type="submit" class="btn btn-navy" style="width: 100%; padding: 12px; font-size: 16px;">Submit to View</button>
+            </form>
+        </div>
+        <div id="fp-success-container" style="display: none; text-align: center; padding: 20px;">
+            <h3 style="color: #2e7d32; margin-bottom: 10px; font-family: var(--font-heading);">✅ Thank You!</h3>
+            <p style="font-size: 14px; color: var(--text-grey); line-height: 1.6;">Your request is successful. You will receive the detailed floor plan PDF directly on your WhatsApp shortly.</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
