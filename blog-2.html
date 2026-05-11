@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
 
     <style>
         :root {
-            --accent-navy: #183A68;
+            --accent-navy: #111111; --accent-black: #111111; --gold-gradient: linear-gradient(135deg, #9A7A28 0%, #C9A84C 40%, #E8C96A 60%, #C9A84C 100%);
             --accent-gold: #C9A84C;
             --primary-bg: #FFFFFF;
             --secondary-bg: #F8F6F1;
@@ -86,7 +86,7 @@
         .logo {
             font-family: var(--font-heading);
             font-size: 24px;
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             font-weight: 700;
             text-decoration: none;
         }
@@ -102,7 +102,7 @@
         }
 
         .nav-links a {
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 500;
@@ -114,9 +114,9 @@
             color: var(--accent-gold);
         }
 
-        .btn-gold {
+        .btn-gold { background: linear-gradient(135deg, #9A7A28 0%, #C9A84C 40%, #E8C96A 60%, #C9A84C 100%);
             background-color: var(--accent-gold);
-            color: var(--accent-navy) !important;
+            color: var(--accent-black, #111111) !important;
             padding: 10px 24px;
             border-radius: 4px;
             font-weight: 600 !important;
@@ -124,7 +124,7 @@
         }
 
         .btn-gold:hover {
-            background-color: #b59542;
+            background-color: #9A7A28;
         }
 
         .mobile-menu-btn {
@@ -132,7 +132,7 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             cursor: pointer;
         }
 
@@ -165,7 +165,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(24, 58, 104, 0.6);
+            background: rgba(0,0,0,0.6);
             z-index: 1;
         }
 
@@ -191,7 +191,7 @@
             font-weight: 500;
         }
         .article-meta span {
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             font-weight: 700;
         }
 
@@ -209,7 +209,7 @@
         .article-body h2 {
             font-family: var(--font-heading);
             font-size: 32px;
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             margin: 40px 0 20px;
         }
 
@@ -219,7 +219,7 @@
 
         /* CTA BOX */
         .blog-cta-box {
-            background-color: var(--accent-navy);
+            background-color: var(--accent-black, #111111);
             border-radius: 16px;
             padding: 40px;
             text-align: center;
@@ -233,7 +233,7 @@
             margin-bottom: 20px;
         }
         
-        .blog-cta-box .btn-gold {
+        .blog-cta-box .btn-gold { background: linear-gradient(135deg, #9A7A28 0%, #C9A84C 40%, #E8C96A 60%, #C9A84C 100%);
             display: inline-block;
             font-size: 16px;
             padding: 14px 30px;
@@ -252,7 +252,7 @@
             text-align: center;
             font-family: var(--font-heading);
             font-size: 36px;
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             margin-bottom: 40px;
         }
         .blogs-grid {
@@ -287,7 +287,7 @@
         .blog-cat {
             display: inline-block;
             background-color: var(--accent-gold);
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             font-size: 10px;
             font-weight: 700;
             padding: 4px 10px;
@@ -298,7 +298,7 @@
         .blog-title {
             font-family: var(--font-heading);
             font-size: 16px;
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             margin-bottom: 10px;
             line-height: 1.4;
         }
@@ -314,12 +314,12 @@
             text-decoration: none;
         }
         .blog-card:hover .blog-cta {
-            color: var(--accent-navy);
+            color: var(--accent-black, #111111);
             text-decoration: underline;
         }
 
         /* FOOTER & FLOATING BAR */
-        #footer { background-color: #0F1F3D; color: #fff; padding-top: 60px; }
+        #footer { background: linear-gradient(180deg, #0A0A0A 0%, #141414 100%); color: #fff; padding-top: 60px; }
         .footer-top { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
         .footer-brand { font-family: var(--font-heading); font-size: 22px; margin-bottom: 4px; }
         .footer-cp-label { color: var(--accent-gold); font-size: 13px; margin-bottom: 20px; display: block; }
@@ -339,7 +339,7 @@
 
         .floating-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; display: none; z-index: 9999; }
         .float-btn { flex: 1; display: flex; justify-content: center; align-items: center; color: #fff; text-decoration: none; font-size: 15px; font-weight: 700; }
-        .float-call { background-color: var(--accent-navy); }
+        .float-call { background-color: var(--accent-black, #111111); }
         .float-wa { background-color: #25D366; }
 
         @media (max-width: 1024px) {

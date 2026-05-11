@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
     
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Sobha One World Hoskote">
-    <meta name="theme-color" content="#1B3A6B">
+    <meta name="theme-color" content="#111111">
     
     <meta name="geo.region" content="IN-KA">
     <meta name="geo.placename" content="Hoskote, Bangalore, Karnataka, India">
@@ -172,13 +172,17 @@
     <style>
         :root {
             --primary-bg: #FFFFFF;
-            --secondary-bg: #F8F6F1;
-            --accent-navy: #1B3A6B;
+            --secondary-bg: #FAF8F4;
+            --accent-navy: #111111;
             --accent-gold: #C9A84C;
-            --text-dark: #333333;
+            --accent-gold-light: #E8C96A;
+            --accent-gold-dark: #9A7A28;
+            --accent-black: #111111;
+            --text-dark: #1A1A1A;
             --text-grey: #555555;
-            --text-light-grey: #666666;
+            --text-light-grey: #777777;
             --border-light: #E8E0D0;
+            --gold-gradient: linear-gradient(135deg, #9A7A28 0%, #C9A84C 40%, #E8C96A 60%, #C9A84C 100%);
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
             --section-padding-desktop: 60px;
@@ -205,7 +209,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
-            color: var(--accent-navy);
+            color: var(--accent-black);
         }
 
         a {
@@ -226,24 +230,30 @@
         }
 
         .btn-navy {
-            background-color: var(--accent-navy);
-            color: #fff;
-            border: 1px solid var(--accent-navy);
+            background: var(--gold-gradient);
+            color: #111;
+            border: none;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(201,168,76,0.3);
         }
 
         .btn-navy:hover {
-            background-color: #12284b;
+            background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #C9A84C 100%);
+            box-shadow: 0 6px 20px rgba(201,168,76,0.5);
+            transform: translateY(-1px);
         }
 
         .btn-gold-outline {
             background-color: transparent;
             color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
+            border: 1.5px solid var(--accent-gold);
         }
 
         .btn-gold-outline:hover {
-            background-color: var(--accent-gold);
-            color: #fff;
+            background: var(--gold-gradient);
+            color: #111;
+            border-color: transparent;
         }
 
         .btn-whatsapp {
@@ -292,7 +302,10 @@
 
         .logo-text {
             font-family: var(--font-heading);
-            color: var(--accent-navy);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 20px;
             font-weight: 700;
         }
@@ -333,7 +346,7 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--accent-navy);
+            color: var(--accent-black);
             cursor: pointer;
         }
 
@@ -362,7 +375,7 @@
             background: none;
             border: none;
             font-size: 32px;
-            color: var(--accent-navy);
+            color: var(--accent-black);
             cursor: pointer;
         }
 
@@ -377,7 +390,7 @@
         .mobile-nav-links a {
             font-size: 18px;
             font-weight: 600;
-            color: var(--accent-navy);
+            color: var(--accent-black);
         }
 
         .mobile-nav-actions {
@@ -392,8 +405,8 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, rgba(27, 58, 107, 0.95) 0%, rgba(27, 58, 107, 0.8) 40%, rgba(27, 58, 107, 0.3) 100%), url('images/hero-bg.jpg') no-repeat center center/cover;
-            padding-top: 70px; /* Offset for header */
+            background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.25) 100%), url('images/hero-bg.jpg') no-repeat center center/cover;
+            padding-top: 70px;
         }
 
         .hero-container {
@@ -446,16 +459,17 @@
         }
 
         .badge {
-            background-color: #fff;
-            color: var(--text-dark);
-            padding: 16px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 14px 16px;
             border-radius: 8px;
-            border-left: 3px solid var(--accent-navy);
+            border-left: 3px solid var(--accent-gold);
             display: flex;
             align-items: center;
             gap: 12px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .badge-icon {
@@ -520,7 +534,8 @@
         }
 
         .form-control:focus {
-            border-color: var(--accent-navy);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 2px rgba(201,168,76,0.15);
         }
 
         .submit-btn {
@@ -551,7 +566,7 @@
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            background-color: var(--accent-navy);
+            background: var(--gold-gradient);
             padding: 12px 0;
             white-space: nowrap;
             box-sizing: border-box;
@@ -564,16 +579,17 @@
 
         .ticker-item {
             display: inline-block;
-            color: #fff;
-            font-size: 14px;
-            letter-spacing: 1px;
+            color: #111;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             padding: 0 20px;
         }
 
         .ticker-item::after {
             content: "◆";
-            color: var(--accent-gold);
+            color: #111;
             margin-left: 40px;
         }
 
@@ -645,7 +661,10 @@
         .stat-number {
             font-family: var(--font-heading);
             font-size: 36px;
-            color: var(--accent-navy);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
             font-weight: 700;
         }
@@ -688,7 +707,9 @@
         }
 
         .float-call {
-            background-color: var(--accent-navy);
+            background: var(--gold-gradient);
+            color: #111 !important;
+            font-weight: 700;
         }
 
         .float-whatsapp {
@@ -701,7 +722,7 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .hero-left { flex: 1 1 100%; }
             .hero-right { flex: 1 1 100%; max-width: 500px; margin: 0 auto; }
-            .hero { padding-top: 100px; background: linear-gradient(to right, rgba(27, 58, 107, 0.95) 0%, rgba(27, 58, 107, 0.9) 100%), url('images/hero-bg.jpg') no-repeat center center/cover; }
+            .hero { padding-top: 100px; background: linear-gradient(rgba(0,0,0,0.90), rgba(0,0,0,0.85)), url('images/hero-bg.jpg') no-repeat center center/cover; }
         }
 
         @media (max-width: 768px) {
@@ -1138,7 +1159,7 @@
 /* SECTION 7 - CONTACT FORM 1 */
 .contact-section {
     padding: var(--section-padding-desktop) 20px;
-    background: linear-gradient(135deg, #1B3A6B 0%, #0F2347 100%);
+    background: linear-gradient(135deg, #111111 0%, #0F2347 100%);
     text-align: center;
 }
 .contact-container {
@@ -3012,7 +3033,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(27, 58, 107, 0.8));
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
     padding: 20px;
     color: #fff;
     opacity: 0;
@@ -5835,7 +5856,7 @@
 
 /* SECTION 37 - FOOTER */
 #footer {
-    background-color: #0F1F3D;
+    background-color: #0A0A0A;
     color: #fff;
     padding-top: 60px;
 }
