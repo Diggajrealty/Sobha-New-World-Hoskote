@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sobhaoneworldhoskote.co.in/sitemap.xml
