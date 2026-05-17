@@ -927,18 +927,20 @@
                         <h3 class="form-title" style="font-family: 'Playfair Display', serif; color: var(--accent-navy);">Get Launch Price & Floor Plans</h3>
                         <p class="form-subtext">Be among the first 100 buyers. Lock launch price before 20 May 2026.</p>
                         
-                        <form id="hero-form">
+                        <form id="hero-form" name="hero-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="hero-form">
+                            <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Full Name" required>
+                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email Address" required>
+                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="+91 Phone Number" required>
+                                <input type="tel" name="phone" class="form-control" placeholder="+91 Phone Number" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" required>
+                                <select name="interested_in" class="form-control" required>
                                     <option value="" disabled selected>I am interested in</option>
                                     <option value="1 BHK">1 BHK</option>
                                     <option value="2 BHK">2 BHK</option>
@@ -948,7 +950,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" required>
+                                <select name="visit_timeline" class="form-control" required>
                                     <option value="" disabled selected>How soon are you planning to visit?</option>
                                     <option value="Immediately">Immediately</option>
                                     <option value="Within 3 months">Within 3 months</option>
@@ -1685,18 +1687,20 @@
                 <h3 class="brochure-form-title">Get Brochure on WhatsApp Instantly</h3>
                 <p class="brochure-form-subtext">Fill the form and we will send the official brochure, floor plans and price sheet directly to your WhatsApp within 5 minutes.</p>
                 
-                <form id="brochure-form">
+                <form id="brochure-form" name="brochure-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="brochure-form">
+                    <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name *" required>
+                        <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX (WhatsApp Number) *" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX (WhatsApp Number) *" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address *" required>
+                        <input type="email" name="email" class="form-control" placeholder="Email Address *" required>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" required>
+                        <select name="interested_in" class="form-control" required>
                             <option value="" disabled selected>Configuration Interested In *</option>
                             <option value="1 BHK">1 BHK</option>
                             <option value="2 BHK">2 BHK</option>
@@ -1706,7 +1710,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" required>
+                        <select name="purpose" class="form-control" required>
                             <option value="" disabled selected>Purpose of Purchase *</option>
                             <option value="Own Use">Own Use</option>
                             <option value="Investment">Investment</option>
@@ -2026,6 +2030,26 @@
 </div>
 
 <script>
+    // Helper function to submit form data to Netlify via AJAX
+    window.submitToNetlify = function(event, callback) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            if (callback) callback();
+        })
+        .catch((error) => {
+            console.error("Netlify form submission error:", error);
+            if (callback) callback(); // Fallback so user still gets success feedback
+        });
+    };
+
     // Lightbox Logic (Vanilla JS)
     const images = [
         "images/gallery-1.jpg",
@@ -2156,6 +2180,16 @@
     font-weight: 500;
     line-height: 1.6;
     font-size: 16px;
+}
+#brochure-success {
+    display: none;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 20px;
 }
 
 /* SECTION 20 - LOCATION ADVANTAGES */
@@ -2474,21 +2508,23 @@
         <p class="visit-subtext">Our property advisor will personally escort you around the site. See the towers, the master plan display, and the Club Trinity model — and lock in your EOI on the spot.</p>
         
         <div class="visit-form-card">
-            <form id="site-visit-form">
+            <form id="site-visit-form" name="site-visit-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="site-visit-form">
+                <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name *" required>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX (Phone Number) *" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX (Phone Number) *" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email Address *" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address *" required>
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" id="visit-date" required>
+                    <input type="date" name="visit_date" class="form-control" id="visit-date" required>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="time_slot" class="form-control" required>
                         <option value="" disabled selected>Preferred Time Slot *</option>
                         <option value="Morning 10AM–12PM">Morning 10AM–12PM</option>
                         <option value="Afternoon 12PM–3PM">Afternoon 12PM–3PM</option>
@@ -2496,7 +2532,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="interested_in" class="form-control" required>
                         <option value="" disabled selected>Configuration Interested In *</option>
                         <option value="1 BHK">1 BHK</option>
                         <option value="2 BHK">2 BHK</option>
@@ -2506,7 +2542,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="source" class="form-control" required>
                         <option value="" disabled selected>How did you hear about us? *</option>
                         <option value="Google Search">Google Search</option>
                         <option value="WhatsApp">WhatsApp</option>
@@ -2872,9 +2908,10 @@
     const visitForm = document.getElementById('site-visit-form');
     if (visitForm) {
         visitForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            visitForm.style.display = 'none';
-            document.getElementById('visit-success').style.display = 'block';
+            window.submitToNetlify(e, () => {
+                visitForm.style.display = 'none';
+                document.getElementById('visit-success').style.display = 'block';
+            });
         });
     }
 </script>
@@ -3472,12 +3509,14 @@
         <p class="visit-subtext">Complete your EOI from anywhere in the world. 100% remote process. Fully refundable.</p>
         
         <div class="nri-form-card">
-            <form id="nri-enquiry-form">
+            <form id="nri-enquiry-form" name="nri-enquiry-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="nri-enquiry-form">
+                <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name *" required>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="country" class="form-control" required>
                         <option value="" disabled selected>Country of Residence *</option>
                         <option value="UAE">UAE</option>
                         <option value="USA">USA</option>
@@ -3492,13 +3531,13 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="WhatsApp Number (e.g. +971 XXXXX XXXXX) *" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="WhatsApp Number (e.g. +971 XXXXX XXXXX) *" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email Address *" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address *" required>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="interested_in" class="form-control" required>
                         <option value="" disabled selected>Configuration Interested In *</option>
                         <option value="1 BHK">1 BHK</option>
                         <option value="2 BHK">2 BHK</option>
@@ -3508,7 +3547,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="purpose" class="form-control" required>
                         <option value="" disabled selected>Purpose *</option>
                         <option value="Own Use">Own Use</option>
                         <option value="Investment/Rental">Investment/Rental</option>
@@ -3517,7 +3556,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" required>
+                    <select name="callback_time" class="form-control" required>
                         <option value="" disabled selected>Best time to call (IST) *</option>
                         <option value="IST Morning 9AM–12PM">IST Morning 9AM–12PM</option>
                         <option value="IST Afternoon 12PM–4PM">IST Afternoon 12PM–4PM</option>
@@ -3539,9 +3578,10 @@
     const nriForm = document.getElementById('nri-enquiry-form');
     if (nriForm) {
         nriForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            nriForm.style.display = 'none';
-            document.getElementById('nri-success').style.display = 'block';
+            window.submitToNetlify(e, () => {
+                nriForm.style.display = 'none';
+                document.getElementById('nri-success').style.display = 'block';
+            });
         });
     }
 </script>
@@ -5063,12 +5103,14 @@
         <p class="final-subtext">Be among the first 100 buyers. Lock in pre-launch pricing of ₹14,720/sq.ft before the official RERA launch price hike. 100% refundable EOI. </p>
         
         <div class="final-form">
-            <form id="bottom-cta-form">
+            <form id="bottom-cta-form" name="bottom-cta-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="bottom-cta-form">
+                <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                 <div class="final-form-row">
-                    <input type="text" class="form-control" placeholder="Name" required>
-                    <input type="tel" class="form-control" placeholder="Phone Number" required>
-                    <input type="email" class="form-control" placeholder="Email Address" required>
-                    <select class="form-control" required>
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <select name="interested_in" class="form-control" required>
                         <option value="" disabled selected>Config</option>
                         <option value="1 BHK">1 BHK</option>
                         <option value="2 BHK">2 BHK</option>
@@ -5176,10 +5218,12 @@
         <h3>Lock In Pre-Launch Pricing Before You Leave</h3>
         <p>EOI holders lock in ₹14,720/sq.ft — this rate rises 5% on May 20, 2026. Submit your details and our advisor calls you within 2 hours.</p>
         
-        <form id="exit-form" class="exit-form">
-            <input type="text" class="form-control" placeholder="Name" required>
-            <input type="tel" class="form-control" placeholder="Phone Number" required>
-            <select class="form-control" required>
+        <form id="exit-form" class="exit-form" name="exit-form" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="exit-form">
+            <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+            <input type="text" name="name" class="form-control" placeholder="Name" required>
+            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+            <select name="interested_in" class="form-control" required>
                 <option value="" disabled selected>Config</option>
                 <option value="1 BHK">1 BHK</option>
                 <option value="2 BHK">2 BHK</option>
@@ -5194,13 +5238,36 @@
 <div class="toast" id="exit-toast">✅ Our advisor will call you within 2 hours.</div>
 
 <script>
+    // Hero Form Submit
+    const heroForm = document.getElementById('hero-form');
+    if (heroForm) {
+        heroForm.addEventListener('submit', (e) => {
+            window.submitToNetlify(e, () => {
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('success-msg').style.display = 'block';
+            });
+        });
+    }
+
+    // Brochure Form Submit
+    const brochureForm = document.getElementById('brochure-form');
+    if (brochureForm) {
+        brochureForm.addEventListener('submit', (e) => {
+            window.submitToNetlify(e, () => {
+                brochureForm.style.display = 'none';
+                document.getElementById('brochure-success').style.display = 'block';
+            });
+        });
+    }
+
     // Bottom CTA Form Submit
     const bottomCtaForm = document.getElementById('bottom-cta-form');
     if (bottomCtaForm) {
         bottomCtaForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            bottomCtaForm.style.display = 'none';
-            document.getElementById('final-success').style.display = 'block';
+            window.submitToNetlify(e, () => {
+                bottomCtaForm.style.display = 'none';
+                document.getElementById('final-success').style.display = 'block';
+            });
         });
     }
 
@@ -5239,12 +5306,13 @@
 
     if (exitForm) {
         exitForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            exitPopup.style.display = 'none';
-            exitToast.style.display = 'block';
-            setTimeout(() => {
-                exitToast.style.display = 'none';
-            }, 3000);
+            window.submitToNetlify(e, () => {
+                exitPopup.style.display = 'none';
+                exitToast.style.display = 'block';
+                setTimeout(() => {
+                    exitToast.style.display = 'none';
+                }, 3000);
+            });
         });
     }
 
@@ -5274,9 +5342,10 @@
     
     if (fpForm) {
         fpForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('fp-form-container').style.display = 'none';
-            document.getElementById('fp-success-container').style.display = 'block';
+            window.submitToNetlify(e, () => {
+                document.getElementById('fp-form-container').style.display = 'none';
+                document.getElementById('fp-success-container').style.display = 'block';
+            });
         });
     }
 
@@ -5298,9 +5367,10 @@
     // Handle lead form submission
     document.addEventListener('submit', function(e) {
         if (e.target && e.target.id === 'lead-modal-form') {
-            e.preventDefault();
-            document.getElementById('lead-form-container').style.display = 'none';
-            document.getElementById('lead-success-container').style.display = 'block';
+            window.submitToNetlify(e, () => {
+                document.getElementById('lead-form-container').style.display = 'none';
+                document.getElementById('lead-success-container').style.display = 'block';
+            });
         }
     });
 </script>
@@ -5312,15 +5382,17 @@
         <div id="fp-form-container">
             <h3 style="font-family: var(--font-heading); color: var(--accent-navy); margin-bottom: 10px;">Unlock Floor Plan</h3>
             <p style="font-size: 14px; color: var(--text-grey); margin-bottom: 20px;">Please enter your details to view the high-resolution floor plans.</p>
-            <form id="fp-form">
+            <form id="fp-form" name="fp-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="fp-form">
+                <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="text" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="tel" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <button type="submit" class="btn btn-navy" style="width: 100%; padding: 12px; font-size: 16px;">Submit to View</button>
             </form>
@@ -5339,15 +5411,17 @@
         <div id="lead-form-container">
             <h3 id="lead-modal-title" style="font-family: var(--font-heading); color: var(--accent-navy); margin-bottom: 10px;">Download Brochure</h3>
             <p id="lead-modal-subtext" style="font-size: 14px; color: var(--text-grey); margin-bottom: 20px;">Please enter your details to receive the official brochure and price sheet via WhatsApp.</p>
-            <form id="lead-modal-form">
+            <form id="lead-modal-form" name="lead-modal-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="lead-modal-form">
+                <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="text" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="tel" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <input type="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); font-size: 14px;">
                 </div>
                 <button type="submit" class="btn btn-navy" style="width: 100%; padding: 12px; font-size: 16px;">Submit Request</button>
             </form>
