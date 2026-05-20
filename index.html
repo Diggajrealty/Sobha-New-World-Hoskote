@@ -259,6 +259,22 @@
             "@type": "Answer",
             "text": "Yes, they are the same project. Sobha The One World Hoskote, Sobha One World Hoskote, One World Hoskote, and Sobha Codename Trinity all refer to the same 300-acre luxury integrated township by Sobha Limited on NH-75 in Hoskote, East Bangalore. It is also sometimes referred to as Sobha World City Hoskote or Sobha Trinity Hoskote. The project is occasionally misspelled as Shobha One World or Shobha The One World Hoskote — regardless of the spelling, it is the same landmark township with 18 towers of G+44 floors and 1–4 BHK apartments starting from ₹1.09 Crore."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Shobha One World Hoskote the same as Sobha One World Hoskote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. 'Shobha One World Hoskote', 'Shobha Hoskote', and 'Shobha The One World' are common alternate spellings of 'Sobha One World Hoskote' — the 300-acre luxury integrated township by Sobha Limited in East Bangalore. The developer's name is officially spelled 'Sobha', but many buyers search using 'Shobha'. Regardless of the spelling, this is the official project resource. The project features 18 towers, 44+ floors, 3000+ apartments, and starts from ₹1.09 Crore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Sobha Hoskote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sobha Hoskote (also searched as Shobha Hoskote) refers to Sobha One World Hoskote — Sobha Limited's flagship 300-acre integrated township project in Hoskote, East Bangalore. It is located near the Hoskote Toll Plaza on NH-75 and features luxury 1, 2, 3, and 4 BHK apartments starting from ₹1.09 Crore."
+          }
         }
       ]
     }
@@ -351,6 +367,31 @@
         }
 
         .btn-gold-outline:hover {
+            background: var(--gold-gradient);
+            color: #111;
+            border-color: transparent;
+        }
+
+        .btn-outline-navy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            background-color: transparent;
+            color: var(--accent-gold);
+            border: 1.5px solid var(--accent-gold);
+            font-family: var(--font-body);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-navy:hover {
             background: var(--gold-gradient);
             color: #111;
             border-color: transparent;
@@ -892,7 +933,7 @@
         <div class="hero-container">
             <div class="hero-left">
                 <span class="hero-label">🏙️ East Bangalore's Most Awaited Launch — May 2026</span>
-                <h1 class="hero-title">Sobha One World Hoskote — Live Above the Ordinary</h1>
+                <h1 class="hero-title">Sobha One World Hoskote — 300-Acre Luxury Township by Sobha Limited</h1>
                 <p class="hero-subtext">India's most trusted builder, Sobha Limited, presents its most ambitious project yet — a 300-acre luxury integrated township in Hoskote, East Bangalore. Also known as Sobha Codename Trinity and Sobha World City Hoskote, this is your chance to own a piece of East Bangalore's fastest-growing corridor before the official launch on 20th May 2026.</p>
                 
                 <div class="hero-badges">
@@ -902,7 +943,7 @@
                     </div>
                     <div class="badge">
                         <span class="badge-icon">🏢</span>
-                        18 Towers | 54 Floors
+                        18 Towers | 44+ Floors
                     </div>
                     <div class="badge">
                         <span class="badge-icon">🏠</span>
@@ -971,6 +1012,13 @@
         </div>
     </section>
 
+    <!-- SHOBHA DISAMBIGUATION BANNER — SEO: captures 'shobha' misspelling searches -->
+    <div id="shobha-note" style="background:#FAF8F4; border-top:1px solid #E8E0D0; border-bottom:1px solid #E8E0D0; padding:12px 20px; text-align:center;">
+        <p style="font-size:13px; color:#555555; max-width:900px; margin:0 auto; line-height:1.6;">
+            Searching for <strong>Shobha One World Hoskote</strong>, <strong>Shobha Hoskote</strong>, or <strong>Shobha The One World</strong>? You've arrived at the right place — <em>"Shobha"</em> is a common alternate spelling of <em>"Sobha"</em>. This is the official resource for <strong>Sobha One World Hoskote</strong> by <strong>Sobha Limited</strong>, East Bangalore's largest luxury integrated township.
+        </p>
+    </div>
+
     <!-- SECTION 3 — TRUST TICKER / SCROLLING STATS BAR -->
     <div class="ticker-wrap">
         <div class="ticker">
@@ -1015,7 +1063,7 @@
                     <div class="stat-label">High-Rise Towers</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">54</div>
+                    <div class="stat-number">44+</div>
                     <div class="stat-label">Floors Per Tower (Tallest in East Blr)</div>
                 </div>
                 <div class="stat-card">
@@ -1211,7 +1259,7 @@
         <div class="split-right">
             <div class="split-img-grid">
                 <div class="img-large">
-                    <img src="images/sobha-one-world-aerial.jpg" alt="Sobha One World Hoskote aerial view 300 acre township 18 towers East Bangalore pre-launch 2026">
+                    <img src="images/sobha-one-world-aerial.jpg" alt="Sobha One World Hoskote aerial view — 300-acre luxury township 18 towers East Bangalore 2026, also known as Shobha One World Hoskote">
                 </div>
                 <div class="img-small">
                     <img src="images/clubhouse.jpg" alt="Sobha One World Club Trinity clubhouse">
@@ -1264,7 +1312,7 @@
                     <li>Strong resale value</li>
                 </ul>
                 
-                <a href="#contact-form-1" class="btn-outline-navy">Get 1 BHK Details →</a>
+                <button type="button" class="btn-outline-navy" onclick="openLeadModal('Get 1 BHK Details', 'Enter your details to receive pricing, floor plans, and availability for the 1 BHK configuration.')" style="cursor: pointer; width: 100%;">Get 1 BHK Details →</button>
             </div>
             
             <!-- CARD 2 -->
@@ -1301,7 +1349,7 @@
                     <li>Priority allotment available</li>
                 </ul>
                 
-                <a href="#contact-form-1" class="btn-outline-navy">Get 2 BHK Details →</a>
+                <button type="button" class="btn-outline-navy" onclick="openLeadModal('Get 2 BHK Details', 'Enter your details to receive pricing, floor plans, and availability for the 2 BHK configuration.')" style="cursor: pointer; width: 100%;">Get 2 BHK Details →</button>
             </div>
             
             <!-- CARD 3 -->
@@ -1337,7 +1385,7 @@
                     <li>Best for joint families</li>
                 </ul>
                 
-                <a href="#contact-form-1" class="btn-outline-navy">Get 3 BHK Details →</a>
+                <button type="button" class="btn-outline-navy" onclick="openLeadModal('Get 3 BHK Details', 'Enter your details to receive pricing, floor plans, and availability for the 3 BHK configuration.')" style="cursor: pointer; width: 100%;">Get 3 BHK Details →</button>
             </div>
             
             <!-- CARD 4 -->
@@ -1373,7 +1421,7 @@
                     <li>Exclusive high-floor inventory</li>
                 </ul>
                 
-                <a href="#contact-form-1" class="btn-outline-navy">Get 4 BHK Details →</a>
+                <button type="button" class="btn-outline-navy" onclick="openLeadModal('Get 4 BHK Details', 'Enter your details to receive pricing, floor plans, and availability for the 4 BHK configuration.')" style="cursor: pointer; width: 100%;">Get 4 BHK Details →</button>
             </div>
         </div>
         
@@ -4609,6 +4657,42 @@
     background-color: #25D366;
 }
 
+/* GENERIC MODALS (FLOOR PLAN & LEAD) */
+.fp-modal-overlay, .lead-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.fp-modal-overlay.active, .lead-modal-overlay.active {
+    display: flex;
+}
+.fp-modal-content, .lead-modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.fp-modal-close, .lead-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+.fp-modal-close:hover, .lead-modal-close:hover {
+    color: var(--accent-black);
+}
+
 /* EXIT INTENT POPUP */
 .exit-overlay {
     position: fixed;
@@ -5084,13 +5168,13 @@
         <div class="cp-grid">
             <div class="cp-text">
                 <p>We are an authorized RERA-registered channel partner for Sobha One World Hoskote. Our advisory team has helped hundreds of families and investors navigate the East Bangalore real estate market over the past decade. We specialize exclusively in premium Bangalore pre-launch projects — which means our advice is deep, current, and focused entirely on your interest as a buyer.</p>
-                <p>As a Sobha channel partner, we provide: complete project advisory at to buyers, dedicated NRI desk for overseas Indian buyers, site visit coordination and accompaniment, floor plan and pricing consultation, home loan assistance with all major banks, post-booking documentation support.</p>
+                <p>As a Sobha channel partner, we provide: complete project advisory at no extra cost to buyers, dedicated NRI desk for overseas Indian buyers, site visit coordination and accompaniment, floor plan and pricing consultation, home loan assistance with all major banks, post-booking documentation support.</p>
                 <p>We are committed to full RERA compliance and transparency in all our dealings. Our channel partner RERA number: PRM/KA/RERA/1251/446/PR/130723/006056.</p>
                 <p class="cp-note">"This website is an official site for Sobha One World Hoskote. All information is subject to change per Sobha Limited's official communications. Images are for representation purposes only. Prices are indicative and may change post-RERA approval."</p>
             </div>
             <div class="cp-badges">
                 <div class="cp-badge">✅ RERA Registered Channel Partner</div>
-                <div class="cp-badge">🏆 for Buyers</div>
+                <div class="cp-badge">🏆 Direct Developer Rates</div>
                 <div class="cp-badge">📞 7-Days Advisory Support</div>
             </div>
         </div>
@@ -5126,7 +5210,7 @@
         
         <div class="final-trust">
             <span>🔒 100% Refundable EOI</span>
-            <span>✅ </span>
+            <span>✅ No Hidden Charges</span>
             <span>📞 Call Back in 2 Hours</span>
         </div>
     </div>
@@ -5193,9 +5277,9 @@
         <div class="footer-bottom-flex">
             <div>© 2026 sobhaoneworldhoskote.co.in. All Rights Reserved.</div>
             <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a> | 
-                <a href="#">Terms of Use</a> | 
-                <a href="#">Sitemap</a>
+                <a href="/privacy-policy.html">Privacy Policy</a> | 
+                <a href="/disclaimer.html">Terms of Use</a> | 
+                <a href="/sitemap.xml">Sitemap</a>
             </div>
             <div>RERA No: PRM/KA/RERA/1251/446/PR/130723/006056</div>
         </div>
