@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
       
       // Update UI state
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -48,21 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
       showStatus('', '');
 
       try {
-        // Placeholder fetch request
-        // In reality, wire this to actual CRM/Google Sheet endpoint
-        // const response = await fetch('/api/lead', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(data)
-        // });
-        
-        // Simulating network request for placeholder
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Simulating success
-        const isSuccess = true;
+        // Netlify AJAX submission
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
 
-        if (isSuccess) {
+        if (response.ok) {
           // Fire Analytics Events if gtag is available
           if (typeof gtag === 'function') {
             gtag('event', 'generate_lead', {
