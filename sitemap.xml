@@ -2,50 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sobhaoneworldhoskote.co.in/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/blog-1.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/sobha-one-world-hoskote-complete-project-overview-2026.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/blog-2.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/why-hoskote-is-bangalore-next-big-real-estate-hotspot.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/blog-3.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/connectivity-guide-hoskote-to-whitefield.html</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/blog-4.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/sobha-one-world-amenities-guide-hoskote.html</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/blog-5.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/hoskote-vs-whitefield-real-estate-comparison.html</loc>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/disclaimer.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/pre-launch-vs-ready-to-move-apartment-bangalore.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sobhaoneworldhoskote.co.in/privacy-policy.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/sobha-limited-developer-profile-review.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sobhaoneworldhoskote.co.in/blog/luxury-apartments-east-bangalore-under-2-crore.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

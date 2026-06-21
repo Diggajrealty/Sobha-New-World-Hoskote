@@ -1,13 +1,4 @@
 User-agent: *
 Allow: /
 
-# Disallow crawling of scratch/utility scripts in root
-Disallow: /fix_final.ps1
-Disallow: /fix_content.ps1
-Disallow: /fix_content_v2.ps1
-Disallow: /move_section.ps1
-Disallow: /fix_content.py
-Disallow: /fix_index.py
-Disallow: /check_ids.py
-
 Sitemap: https://sobhaoneworldhoskote.co.in/sitemap.xml
