@@ -14,12 +14,28 @@ import SectionRail from "@/components/SectionRail";
 import MapEmbed from "@/components/MapEmbed";
 import { Ornament, SectionNumber } from "@/components/Ornament";
 import { Reveal, SectionHead, Eyebrow, Rule } from "@/components/ui";
-import { AMENITIES, BENTO, DISTANCES, POSTS, RESIDENCES, SPECS } from "@/lib/content";
+import { AMENITIES, BENTO, DISTANCES, FAQS, POSTS, RESIDENCES, SPECS, SITE } from "@/lib/content";
 import { INNER_PAGES } from "@/lib/pages";
+import CtaBanner from "@/components/CtaBanner";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${SITE.url}/#faq`,
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Header />
       <SectionRail />
       <main>
@@ -161,18 +177,26 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="wrap">
+          <CtaBanner action="brochure" heading="Get the Sobha One World Hoskote price list" sub="Configuration-wise pricing, payment plan and current tranche availability." />
+        </div>
+
         {/* RESIDENCES */}
         <section id="residences" className="section-y">
           <div className="wrap">
             <div className="mb-14">
               <SectionHead
                 eyebrow="Residences & Configurations"
-                title="Sobha One World Hoskote Configurations — 1, 2, 3 &amp; 4 BHK Apartments"
+                title="Choose Your Home — 1, 2, 3 &amp; 4 BHK Configurations"
                 lede="From a 734 sq.ft first home to a 2,650 sq.ft sky estate, every apartment is Vaastu-compliant, cross-ventilated and planned so circulation space works for you rather than against your furniture."
               />
               <Reveal delay={0.1}>
                 <p className="mt-6 max-w-3xl text-ink-soft">
-                  Interiors are specified to Sobha&apos;s signature standard: engineered marble or
+                  Full layouts, room dimensions and carpet-area figures are on the{" "}
+                  <Link href="/sobha-one-world-hoskote-floor-plans" className="text-gold underline decoration-gold/40">
+                    floor plans page
+                  </Link>
+                  . Interiors are specified to Sobha&apos;s signature standard: engineered marble or
                   large-format vitrified flooring in living and dining areas, premium laminated
                   wooden flooring in master bedrooms, granite-topped modular kitchen platforms
                   with provision for chimney, hob and water purifier, anti-skid ceramic in
@@ -231,7 +255,7 @@ export default function Home() {
             <div className="mb-14">
               <SectionHead
                 eyebrow="Amenities"
-                title="Sobha One World Hoskote Amenities — Grand Clubhouse &amp; 50+ Facilities"
+                title="A Glimpse of the Clubhouse &amp; Resident Lifestyle"
                 lede="More than 50 amenities, anchored by a multi-level Grand Clubhouse that functions less like a society facility and more like a private resort you happen to live inside."
               />
               <Reveal delay={0.1}>
@@ -287,13 +311,17 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="wrap">
+          <CtaBanner variant="dark" action="visit" heading="Book a site visit at Sarakariguttahalli" sub="Walk the 300-acre masterplan and see the tower positions before you choose a unit." />
+        </div>
+
         {/* LOCATION */}
         <section id="location" className="section-y">
           <div className="wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <Reveal>
               <SectionNumber n="05" label="Location & Connectivity" />
               <h2 className="text-[clamp(2rem,4.2vw,3.6rem)]">
-                Sobha One World Hoskote Location — Connectivity to Whitefield, ITPL &amp; Airport
+                Where Sobha One World Sits — and Why It Commutes Well
               </h2>
               <Rule />
               <p className="text-[clamp(1.05rem,1.5vw,1.22rem)] leading-[1.85] text-ink-soft">
@@ -385,7 +413,10 @@ export default function Home() {
               </p>
               <h3 className="mt-9 text-2xl">What that means for a buyer</h3>
               <p className="mt-3 text-ink-soft">
-                Slab-level tolerances measured in millimetres, mock-up flats built and rejected
+                <Link href="/sobha-limited-builder" className="text-gold underline decoration-gold/40">
+                  Read the full Sobha Limited builder review
+                </Link>{" "}
+                for the delivery record. Slab-level tolerances measured in millimetres, mock-up flats built and rejected
                 before mass production, in-house testing of façade systems for water ingress, and
                 a handover checklist running to hundreds of items per apartment. It also means
                 delivery discipline — which matters enormously in a pre-launch purchase where the
@@ -455,6 +486,10 @@ export default function Home() {
             </Reveal>
           </div>
         </section>
+
+        <div className="wrap">
+          <CtaBanner action="whatsapp" heading="Questions about pricing, RERA or possession?" sub="Message the sales desk on WhatsApp — replies within working hours." />
+        </div>
 
         {/* BLOG */}
         <section id="blog" className="section-y">

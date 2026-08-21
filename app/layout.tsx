@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { SITE, FAQS, RESIDENCES } from "@/lib/content";
+import { SITE, RESIDENCES } from "@/lib/content";
+import PopupForm from "@/components/PopupForm";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: "Sobha One World Hoskote | 1-4 BHK Pre-Launch Luxury Apartments, East Bangalore",
   description:
-    "Sobha One World Hoskote — a 300-acre pre-launch township by Sobha Limited in East Bangalore. Luxury 1, 2, 3 & 4 BHK apartments from ₹1.09 Cr*. Floor plans, price list, amenities & location guide.",
+    "Sobha One World Hoskote: 300-acre pre-launch township by Sobha Limited. Luxury 1-4 BHK apartments from ₹1.09 Cr*. Price list, floor plans & location.",
   keywords: [
     "Sobha One World Hoskote",
     "Sobha One World",
@@ -79,21 +80,39 @@ const jsonLd = {
       },
       geo: { "@type": "GeoCoordinates", latitude: "13.0712", longitude: "77.7988" },
       dateModified: BUILD_DATE,
-      makesOffer: RESIDENCES.map((r) => ({
-        "@type": "Offer",
-        name: `${r.name} — Sobha One World Hoskote`,
-        availability: "https://schema.org/PreOrder",
-        priceCurrency: "INR",
-        ...(r.price.startsWith("₹")
-          ? { price: 10900000, priceSpecification: { "@type": "PriceSpecification", minPrice: 10900000, priceCurrency: "INR", valueAddedTaxIncluded: false } }
-          : { description: "Price on request" }),
-        itemOffered: {
-          "@type": "Apartment",
-          name: r.name,
-          numberOfRooms: r.id.charAt(0),
-          floorSize: { "@type": "QuantitativeValue", value: r.area.replace(/[^0-9,]/g, "").replace(",", ""), unitCode: "FTK" },
-        },
-      })),
+      makesOffer: RESIDENCES.map((r) => {
+        // "₹1.09 Cr*" -> 10900000. Configurations quoted "On Request" carry no price.
+        const crore = r.price.startsWith("₹") ? Number(r.price.replace(/[^0-9.]/g, "")) : null;
+        const inr = crore ? Math.round(crore * 1e7) : null;
+        return {
+          "@type": "Offer",
+          name: `${r.name} — Sobha One World Hoskote`,
+          url: `${SITE.url}/sobha-one-world-hoskote-price`,
+          availability: "https://schema.org/PreOrder",
+          priceCurrency: "INR",
+          ...(inr
+            ? {
+                price: inr,
+                priceSpecification: {
+                  "@type": "PriceSpecification",
+                  minPrice: inr,
+                  priceCurrency: "INR",
+                  valueAddedTaxIncluded: false,
+                },
+              }
+            : { description: "Price on request" }),
+          itemOffered: {
+            "@type": "Apartment",
+            name: r.name,
+            numberOfRooms: r.id.charAt(0),
+            floorSize: {
+              "@type": "QuantitativeValue",
+              value: Number(r.area.replace(/[^0-9]/g, "")),
+              unitCode: "FTK",
+            },
+          },
+        };
+      }),
       amenityFeature: [
         "Swimming Pool",
         "Gymnasium",
@@ -125,21 +144,12 @@ const jsonLd = {
         "@type": "Place",
         name,
       })),
-      makesOffer: { "@id": `${SITE.url}/#property` },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: SITE.phone,
         contactType: "Sales",
         availableLanguage: ["English", "Hindi", "Kannada"],
       },
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: FAQS.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
     },
   ],
 };
@@ -153,6 +163,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <PopupForm />
       </body>
     </html>
   );

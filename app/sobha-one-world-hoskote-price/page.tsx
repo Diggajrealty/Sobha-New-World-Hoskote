@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import { RESIDENCES, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha One World Hoskote Price List 2026 | 1-4 BHK Prices from ₹1.09 Cr",
   description:
-    "Sobha One World Hoskote price list 2026: 1 BHK from ₹1.09 Cr*, 2 BHK, 3 BHK Luxe and 4 BHK Grande prices, per sq ft rate, payment plan, stamp duty, GST and total cost breakdown.",
+    "Sobha One World Hoskote price list 2026: 1 BHK from Rs 1.09 Cr*, plus per sq ft rate, payment plan, stamp duty and GST breakdown.",
   keywords: [
     "Sobha One World Hoskote price",
     "Sobha One World price list",
@@ -46,8 +47,24 @@ const PAYMENT = [
   ["On offer of possession", "Final instalment, plus registration and deposits"],
 ];
 
+const aggregateOffer = {
+  "@context": "https://schema.org",
+  "@type": "AggregateOffer",
+  url: `${SITE.url}/sobha-one-world-hoskote-price`,
+  priceCurrency: "INR",
+  lowPrice: 10900000,
+  offerCount: 4,
+  availability: "https://schema.org/PreOrder",
+  itemOffered: { "@id": `${SITE.url}/#property` },
+};
+
 export default function PricePage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateOffer) }}
+      />
     <PageShell
       eyebrow="Price List 2026"
       title="Sobha One World Hoskote Price List — 1, 2, 3 & 4 BHK Apartment Prices"
@@ -129,6 +146,8 @@ export default function PricePage() {
         .
       </p>
 
+      <CtaBanner action="brochure" heading="Get the exact cost sheet for your configuration" sub="Unit-wise pricing, floor rise, car park and the full payment schedule — sent within 24 hours." />
+
       <h2 className="mt-14">Sobha One World Hoskote Payment Plan</h2>
       <p className="mt-5 text-ink-soft">
         Payment for an under-construction apartment in Karnataka is construction-linked, which
@@ -158,6 +177,8 @@ export default function PricePage() {
         disbursement against construction milestones. Buyers who book at pre-launch usually pay the
         token from own funds and draw the loan after agreement execution.
       </p>
+
+      <CtaBanner variant="dark" action="phone" heading="Discuss pricing with the sales desk" sub="Ask about current tranche rates, pre-launch offers and home-loan tie-ups." />
 
       <h2 className="mt-14">Is Sobha One World Hoskote Worth the Price?</h2>
       <p className="mt-5 text-ink-soft">
@@ -190,5 +211,6 @@ export default function PricePage() {
         Phase 1 is under process.
       </p>
     </PageShell>
+    </>
   );
 }

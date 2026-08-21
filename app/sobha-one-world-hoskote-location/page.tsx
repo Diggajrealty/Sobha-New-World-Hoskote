@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import MapEmbed from "@/components/MapEmbed";
 import { DISTANCES, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha One World Hoskote Location & Connectivity | Whitefield, ITPL, Airport",
   description:
-    "Sobha One World Hoskote location map and connectivity: 20 min to Whitefield, 25 min to ITPL, 40 min to Bangalore airport, 5 min to NH-75, adjacent to STRR. Schools, hospitals and metro plans nearby.",
+    "Sobha One World Hoskote location: 20 min to Whitefield, 25 to ITPL, 40 to the airport, 5 to NH-75, adjacent to the STRR.",
   keywords: [
     "Sobha One World Hoskote location",
     "Hoskote to Whitefield distance",
@@ -90,6 +91,8 @@ export default function LocationPage() {
         .
       </p>
 
+      <CtaBanner action="visit" heading="See the location for yourself" sub="We will arrange pickup and a drive through the Whitefield and ITPL commute route." />
+
       <h2 className="mt-14">Infrastructure Pipeline — Funded vs Proposed</h2>
       <p className="mt-5 text-ink-soft">
         Real estate marketing tends to present every infrastructure headline as imminent. It is
@@ -134,6 +137,8 @@ export default function LocationPage() {
         still mean a drive west. That gap is precisely why the per-square-foot price differs, and it
         is narrowing each year as the corridor develops.
       </p>
+
+      <CtaBanner variant="dark" action="phone" heading="Ask about rental yields in Hoskote" sub="Current rent bands for 2 and 3 BHK apartments in the micro-market." />
 
       <h2 className="mt-14">Why the Location Supports Rental Demand</h2>
       <p className="mt-5 text-ink-soft">

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Check, X } from "lucide-react";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import { SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha One World Hoskote Review 2026 | Pros, Cons & Is It Worth Buying?",
   description:
-    "An honest Sobha One World Hoskote review: pros and cons, who should buy, investment potential, pre-launch risks, RERA status and how it compares to Whitefield projects.",
+    "An honest Sobha One World Hoskote review: pros, cons, pre-launch risk, RERA status and which buyer the project actually suits.",
   keywords: [
     "Sobha One World Hoskote review",
     "is Sobha One World worth buying",
@@ -132,6 +133,8 @@ export default function ReviewPage() {
         .
       </p>
 
+      <CtaBanner action="phone" heading="Have a question this review did not answer?" sub="Speak to the sales desk directly — including the parts we flagged as risks." />
+
       <h2 className="mt-14">Pre-Launch Risk — Stated Plainly</h2>
       <p className="mt-5 text-ink-soft">
         RERA registration for Phase 1 is under process with the Karnataka authority. Until it is
@@ -174,6 +177,8 @@ export default function ReviewPage() {
           </tbody>
         </table>
       </div>
+
+      <CtaBanner variant="dark" action="brochure" heading="Get the Hoskote vs Whitefield cost comparison" sub="Like-for-like per-square-foot and total-cost numbers for both micro-markets." />
 
       <h2 className="mt-14">How It Compares to Whitefield Projects</h2>
       <p className="mt-5 text-ink-soft">

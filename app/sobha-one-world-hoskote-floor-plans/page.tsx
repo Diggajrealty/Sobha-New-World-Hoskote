@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import { RESIDENCES, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha One World Hoskote Floor Plans | 1, 2, 3 & 4 BHK Layouts & Sizes",
   description:
-    "Sobha One World Hoskote floor plans: 1 BHK 734 sq.ft, 2 BHK 1,150 sq.ft, 3 BHK Luxe 1,600 sq.ft and 4 BHK Grande 2,650 sq.ft. Carpet vs saleable area, Vaastu orientation and room dimensions.",
+    "Sobha One World Hoskote floor plans: 1 BHK 734 sq.ft to 4 BHK 2,650 sq.ft. Carpet vs saleable area, Vaastu orientation and room sizes.",
   keywords: [
     "Sobha One World Hoskote floor plan",
     "3 BHK floor plan Hoskote",
@@ -119,6 +120,8 @@ export default function FloorPlansPage() {
         ))}
       </div>
 
+      <CtaBanner action="brochure" heading="Request dimensioned floor plans" sub="Room-by-room measurements and the unit-numbering sheet for east and north-facing stacks." />
+
       <h2 className="mt-14">Vaastu Compliance and Apartment Orientation</h2>
       <p className="mt-5 text-ink-soft">
         Every apartment at Sobha One World Hoskote is planned to Vaastu principles: the main
@@ -136,6 +139,8 @@ export default function FloorPlansPage() {
         toward view: the lake and Nandi-side vistas sit on specific faces, and those command a
         floor-rise premium.
       </p>
+
+      <CtaBanner variant="dark" action="whatsapp" heading="Not sure which layout fits your family?" sub="Send us your requirement on WhatsApp and we will shortlist two or three units." />
 
       <h2 className="mt-14">Which Configuration Should You Buy?</h2>
       <p className="mt-5 text-ink-soft">

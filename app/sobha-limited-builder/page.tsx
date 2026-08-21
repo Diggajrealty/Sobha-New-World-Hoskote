@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import { SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha Limited Builder Review | Track Record, Quality & Projects in Bangalore",
   description:
-    "Sobha Limited builder profile: backward-integrated construction, 130+ million sq ft delivered, quality standards, delivery track record and what it means for a Sobha One World Hoskote pre-launch buyer.",
+    "Sobha Limited builder review: backward-integrated construction, 130+ million sq ft delivered, and what it means for pre-launch buyers.",
   keywords: [
     "Sobha Limited builder review",
     "Sobha Limited Bangalore projects",
@@ -25,8 +26,24 @@ export const metadata: Metadata = {
   },
 };
 
+const builderOrg = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Sobha Limited",
+  url: "https://www.sobha.com",
+  foundingDate: "1995",
+  areaServed: "IN",
+  description:
+    "Indian real estate developer founded in 1995, known for backward-integrated in-house construction.",
+};
+
 export default function BuilderPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(builderOrg) }}
+      />
     <PageShell
       eyebrow="The Builder"
       title="Sobha Limited Builder Review — Track Record, Quality and What It Means for Buyers"
@@ -83,6 +100,8 @@ export default function BuilderPage() {
         this discipline matters considerably more than it would in a four-storey building.
       </p>
 
+      <CtaBanner action="visit" heading="Visit a completed Sobha project" sub="The best due diligence is a delivered building. We will arrange access to one nearby." />
+
       <h2 className="mt-14">Delivery Track Record and Why It Matters at Pre-Launch</h2>
       <p className="mt-5 text-ink-soft">
         In a pre-launch purchase you are not buying an apartment. You are buying a promise to build
@@ -98,6 +117,8 @@ export default function BuilderPage() {
         lost most were rarely those who overpaid — they were those who bought from developers who
         stalled.
       </p>
+
+      <CtaBanner variant="dark" action="brochure" heading="Request the approvals and document set" sub="Sanctioned plan, title documents and RERA status as it stands today." />
 
       <h2 className="mt-14">What You Should Still Verify</h2>
       <p className="mt-5 text-ink-soft">
@@ -149,5 +170,6 @@ export default function BuilderPage() {
         official website of Sobha Limited. Nothing on this page is investment advice.
       </p>
     </PageShell>
+    </>
   );
 }

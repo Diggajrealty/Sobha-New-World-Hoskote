@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PageShell from "@/components/PageShell";
+import CtaBanner from "@/components/CtaBanner";
 import { AMENITIES, BENTO, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Sobha One World Hoskote Amenities | 50+ Facilities & Grand Clubhouse",
   description:
-    "Full amenities list for Sobha One World Hoskote: Grand Clubhouse, temperature-controlled pool, gym, spa, tennis, kids' zones, 70% open green space, EV parking, STP and 24/7 security.",
+    "Sobha One World Hoskote amenities: Grand Clubhouse, pool, gym, spa, tennis, kids' zones and 70% open green across 300 acres.",
   keywords: [
     "Sobha One World Hoskote amenities",
     "clubhouse apartments Hoskote",
@@ -65,6 +66,8 @@ export default function AmenitiesPage() {
           </figure>
         ))}
       </div>
+
+      <CtaBanner action="visit" heading="Walk the masterplan in person" sub="Book a guided site visit at Sarakariguttahalli and see the amenity zones on the ground." />
 
       <h2 className="mt-14">Sports and Recreation Facilities</h2>
       <p className="mt-5 text-ink-soft">
@@ -132,6 +135,8 @@ export default function AmenitiesPage() {
         — internal convenience infrastructure is not a luxury, it is the thing that makes the
         address livable from day one.
       </p>
+
+      <CtaBanner variant="dark" action="brochure" heading="Get the amenity plan and maintenance projection" sub="Phase-wise facility list plus the projected per-square-foot maintenance rate." />
 
       <h2 className="mt-14">What Amenities Cost in Monthly Maintenance</h2>
       <p className="mt-5 text-ink-soft">
