@@ -1,0 +1,10 @@
+{
+  "name": "Sobha One World Hoskote",
+  "short_name": "Sobha One World",
+  "description": "300-acre pre-launch luxury township by Sobha Limited in Hoskote, East Bangalore.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF9F0",
+  "theme_color": "#243A31",
+  "icons": [{ "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }]
+}
