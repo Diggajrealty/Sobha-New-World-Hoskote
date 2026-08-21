@@ -1,0 +1,12 @@
+# Netlify needs the Next.js runtime to serve an App Router build.
+# Without this it publishes a directory with no index.html and every route 404s.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
