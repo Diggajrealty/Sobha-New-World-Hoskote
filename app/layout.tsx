@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   manifest: "/site.webmanifest",
+  verification: {
+    google: "pVvMmkgWTFn8jkycfnej6c1aPcORyRyex7qAgePqhwQ",
+  },
   robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   openGraph: {
     type: "website",
